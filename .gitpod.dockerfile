@@ -76,5 +76,5 @@ USER root
 RUN echo "xdebug.remote_enable = 1" >> /etc/php/7.4/apache2/conf.d/20-xdebug.ini && \
   echo "xdebug.remote_log='/workspace/gitpod-wordpress/public_html/xdebug.log'" >> /etc/php/7.4/apache2/conf.d/20-xdebug.ini && \
   echo "xdebug.remote_autostart = 1" >> /etc/php/7.4/apache2/conf.d/20-xdebug.ini && \
-  echo "xdebug.remote_host='172.17.0.1'" >> /etc/php/7.4/apache2/conf.d/20-xdebug.ini
+  echo "xdebug.remote_host='0.0.0.0'" >> /etc/php/7.4/apache2/conf.d/20-xdebug.ini
 USER gitpod
