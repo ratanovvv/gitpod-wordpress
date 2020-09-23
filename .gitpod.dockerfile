@@ -72,3 +72,9 @@ RUN wget -q https://wordpress.org/latest.zip -O $HOME/wordpress.zip && \
     wget -q https://www.adminer.org/latest.php -O $HOME/wordpress/database/index.php && \
     mkdir $HOME/wordpress/phpinfo/ && \
     echo "<?php phpinfo(); ?>" > $HOME/wordpress/phpinfo/index.php
+USER root
+RUN echo "xdebug.remote_enable = 1" >> /etc/php/7.4/apache2/conf.d/20-xdebug.ini && \
+  echo "xdebug.remote_log='/workspace/gitpod-wordpress/public_html/xdebug.log'" >> /etc/php/7.4/apache2/conf.d/20-xdebug.ini && \
+  echo "xdebug.remote_autostart = 1" >> /etc/php/7.4/apache2/conf.d/20-xdebug.ini && \
+  echo "xdebug.remote_host='172.17.0.1'" >> /etc/php/7.4/apache2/conf.d/20-xdebug.ini
+USER gitpod
